@@ -33,7 +33,7 @@ def insert_products(connection, products):
 
 def update_products(connection, products):
     try:
-        sql = '''UPDATE products SET quantity = ?, price = ?
+        sql = '''UPDATE products SET price = ?, quantity = ?
          WHERE id = ?'''
         cursor = connection.cursor()
         cursor.execute(sql, products)
@@ -42,14 +42,6 @@ def update_products(connection, products):
         print(e)
 
 
-# def delite_products(connection, products_id):
-#     try:
-#         sql = '''DELETE FROM products WHERE id = ?'''
-#         cursor = connection.cursor()
-#         cursor.execute(sql, products_id)
-#         connection.commit()
-#     except sqlite3.Error as e:
-#         print(e)
 
 
 def delite_products(connection, products_id):
@@ -113,25 +105,25 @@ my_connection = create_connection("hw.db")
 if my_connection:
     print("Connected.")
     # create_table(my_connection, sql_products_table)
-    # insert_products(my_connection, ('Молоко', 60.50, 15))
-    # insert_products(my_connection, ('Кефирfsdf', 60.50, 15))
-    # insert_products(my_connection, ('Кефир', 60.50, 15))
-    # insert_products(my_connection, ('Сыр', 60.50, 15))
-    # insert_products(my_connection, ('Сыр', 60.50, 15))
-    # insert_products(my_connection, ('Сыр', 60.50, 15))
-    # insert_products(my_connection, ('Сыр', 60.50, 15))
-    # insert_products(my_connection, ('Сыр', 60.50, 15))
-    # insert_products(my_connection, ('Кумыс', 150.50, 3))
-    # insert_products(my_connection, ('Сыр', 60.50, 15))
-    # insert_products(my_connection, ('Сыр', 60.50, 15))
-    # insert_products(my_connection, ('Сыр', 60.50, 15))
-    # insert_products(my_connection, ('Сыр', 60.50, 15))
-    # insert_products(my_connection, ('Сыр', 60.50, 15))
-    # insert_products(my_connection, ('Сыр', 60.50, 15))
-    # update_products(my_connection, (75.90, 34, 1))
-    # delite_products(my_connection, [1])
+    # insert_products(my_connection, ('Лейка', 15, 15))
+    # insert_products(my_connection, ('Губка', 30.15, 12))
+    # insert_products(my_connection, ('Мыло банное', 45.50, 22))
+    # insert_products(my_connection, ('Мыло хозяйственное', 17, 55))
+    # insert_products(my_connection, ('Стекломой', 55.99, 10))
+    # insert_products(my_connection, ('Туалетная бумага', 14, 34))
+    # insert_products(my_connection, ('Зубная паста', 75, 8))
+    # insert_products(my_connection, ('Стиральный порошок', 120, 19))
+    # insert_products(my_connection, ('Коврик', 150.50, 3))
+    # insert_products(my_connection, ('Зубная щётка', 60.50, 15))
+    # insert_products(my_connection, ('WD-40', 90, 15))
+    # insert_products(my_connection, ('Туалетный утенок', 120.50, 5))
+    # insert_products(my_connection, ('Антинакипин', 32.00, 36))
+    # insert_products(my_connection, ('Моющий порошок', 73.50, 20))
+    # insert_products(my_connection, ('Гвозди', 3.50, 500))
+    update_products(my_connection, (999.90, 22, 55))
+    delite_products(my_connection, [48])
     # select_all_products(my_connection)
     # select_products_by_price(my_connection)
-    select_products_by_name(my_connection, 'Кумыс')
+    select_products_by_name(my_connection, 'Мыло')
 
     my_connection.close()
