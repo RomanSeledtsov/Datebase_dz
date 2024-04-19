@@ -68,7 +68,7 @@ def select_all_products(connection):
 
 def select_products_by_price(connection):
     try:
-        sql = '''SELECT * FROM products WHERE price < 100 and quantity > 5'''
+        sql = '''SELECT * FROM products WHERE price = ?, quantity = ?'''
         cursor = connection.cursor()
         cursor.execute(sql)
         rows = cursor.fetchall()
